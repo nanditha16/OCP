@@ -4,7 +4,7 @@ package com.examOCP;
  * Hello world!
  *
  */
-public class Card 
+public class App 
 {
     public static void main( String[] args )
     {
