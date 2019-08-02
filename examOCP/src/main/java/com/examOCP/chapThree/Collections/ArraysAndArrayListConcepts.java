@@ -1,4 +1,4 @@
-package com.examOCP.chapThree.ArraysAndArrayList;
+package com.examOCP.chapThree.Collections;
 
 import java.util.Arrays;
 import java.util.Collection;
