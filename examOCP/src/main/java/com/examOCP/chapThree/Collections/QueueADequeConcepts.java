@@ -1,14 +1,14 @@
 package com.examOCP.chapThree.Collections;
 
 import java.util.ArrayDeque;
-import java.util.Comparator;
+//import java.util.Comparator;
 import java.util.Deque;
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Set;
+//import java.util.Set;
 
 public class QueueADequeConcepts {
 
@@ -87,13 +87,13 @@ public class QueueADequeConcepts {
 	    
 	    // Iterate through the queue elements. 
         System.out.println("Standard Iterator"); 
-        Iterator iterator = q.iterator(); 
+        Iterator<Integer> iterator = q.iterator(); 
         while (iterator.hasNext()) 
             System.out.print("\t" + iterator.next()); 
   
   
         // Reverse order iterator 
-        Iterator reverse = d.descendingIterator(); 
+        Iterator<Integer> reverse = d.descendingIterator(); 
         System.out.println("\nReverse Iterator"); 
         while (reverse.hasNext()) 
             System.out.print("\t" + reverse.next()); 
@@ -114,7 +114,7 @@ public class QueueADequeConcepts {
   
         // Printing all elements 
         System.out.println("The queue elements:"); 
-        Iterator itr = p.iterator(); 
+        Iterator<String> itr = p.iterator(); 
         while (itr.hasNext()) 
             System.out.println(itr.next()); 
   
@@ -152,7 +152,8 @@ public class QueueADequeConcepts {
 		
         // Intializing an ArrayDeque 
         Deque<Integer> a = new ArrayDeque<Integer>(10); 
-        Queue<Integer> aq = new ArrayDeque<Integer>(10); 
+        @SuppressWarnings("unused")
+		Queue<Integer> aq = new ArrayDeque<Integer>(10); 
         
         // Adds elements {0, 1, 2, 3, 4} to dequeue 
      	for (int i=0; i<5; i++) 
@@ -180,14 +181,14 @@ public class QueueADequeConcepts {
    
         // Iterator() : 
         System.out.println("Elements of deque using Iterator :"); 
-        for(Iterator iter = a.iterator(); itr.hasNext();) 
+        for(Iterator<Integer> iter = a.iterator(); itr.hasNext();) 
         { 
             System.out.println(iter.next()); 
         } 
    
         // descendingIterator() : to reverse the deque order 
         System.out.println("Elements of deque in reverse order :"); 
-        for(Iterator dItr = a.descendingIterator();  
+        for(Iterator<Integer> dItr = a.descendingIterator();  
                                                dItr.hasNext();) 
         { 
             System.out.println(dItr.next()); 

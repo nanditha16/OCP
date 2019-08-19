@@ -290,6 +290,7 @@ public class ArraysAndArrayListConcepts
 		/*
 		 * Unused variables, arrayList declaration practice only
 		 */
+		@SuppressWarnings("unused")
 		private void initializeArrayListExamples() {
 			/*
 	         * Declaring an Array
@@ -308,7 +309,7 @@ public class ArraysAndArrayListConcepts
 			List<Object> objList;
 			
 			// arrayList of Collections
-	    	List<Collection> collList;
+	    	List<Collection<Integer>> collList;
 	    	
 	    	// List of List
 	    	List<List<Integer>> intList2;
@@ -327,6 +328,7 @@ public class ArraysAndArrayListConcepts
 		/*
 		 * Unused variables, array declaration practice only
 		 */
+		@SuppressWarnings("unused")
 		private void initializeArrayExamples() {
 			/*
 	         * Declaring an Array
@@ -347,7 +349,7 @@ public class ArraysAndArrayListConcepts
 	    	Object[]  ao;
 	    	
 	    	// array of Collections
-	    	Collection[] ca;
+	    	Collection<String>[] ca;
 	    	
 	    	// 2D array
 	    	int[][] intArray5 = new int[10][20];

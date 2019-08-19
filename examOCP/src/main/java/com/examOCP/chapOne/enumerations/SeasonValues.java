@@ -23,6 +23,7 @@ public enum SeasonValues {
 		System.out.print("Season Value" + SeasonValues.SPRING + " : ");
 		sea1.printLikings();
 		System.out.println();
+		@SuppressWarnings("unused")
 		SeasonValues sea2 = SeasonValues.WINTER; 
 		System.out.println("sea1 == SeasonValues.SPRING --> " + (sea1 == SeasonValues.SPRING));
 		System.out.println("sea1 == SeasonValues.WINTER --> "  +(sea1 == SeasonValues.WINTER));
