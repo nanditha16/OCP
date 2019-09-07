@@ -62,7 +62,22 @@ public class SetAndMapConcepts {
 		for (Map.Entry<String, Integer> me : st) {
 			System.out.print(me.getKey() + ":");
 			System.out.println(me.getValue());
+			
 		}
+		
+		//If the specified key is not already associated with a value 
+		//(or is mapped to null) associates it with the given value and 
+		//returns null, else returns the current value.
+		hm.putIfAbsent("a", new Integer(1000)); //wont add this, as key is present
+		hm.putIfAbsent("e", new Integer(2000));
+		System.out.println("putIfAbsent : ex");
+		for (Map.Entry<String, Integer> me : st) {
+			System.out.print(me.getKey() + ":");
+			System.out.println(me.getValue());
+			
+		}
+		
+		
 	}
 
 	private static void treeSetPractice() {
