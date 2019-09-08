@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -205,6 +206,27 @@ public class ArraysAndArrayListConcepts
 	    	 System.arraycopy(strList.toArray(), 0, strArr5, 0, strList.size());
 	    	 System.out.print(Arrays.toString(strArr5) + " ");
 		    
+			// Case 6 : Convert ArrayList to Set
+			strList = new ArrayList<String>();
+			strList.add("Ted");
+			strList.add("John");
+			strList.add("Mark");
+			strList.add("Ted");
+			strList.add("David");
+
+			HashSet<String> stringSet = new HashSet(strList);
+			System.out.print("\n Case 6 : Convert ArrayList<String> to HashSet<String> : ");
+			for (String temp : stringSet) {
+				System.out.print(temp + ", ");
+			}
+			
+			// Case 7 : Convert Set to ArrayList
+			List<String> list = new ArrayList<String>(stringSet);
+			System.out.print("\n Case 7 : Convert HashSet<String> to ArrayList<String> : ");
+			for (String temp : list) {
+				System.out.print(temp + ", ");
+			}
+		
 		}
 
 		public void arrayListRelated() {
@@ -283,7 +305,12 @@ public class ArraysAndArrayListConcepts
 			//replaceAll
 			Collections.replaceAll(strList, "Dat", "Eat");
 			System.out.println("replaceAll on list: " + strList);
+
 			
+			
+			
+		        
+		        
 			
 		}
 		
