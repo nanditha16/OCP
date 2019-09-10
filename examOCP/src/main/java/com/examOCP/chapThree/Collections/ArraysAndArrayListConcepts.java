@@ -214,7 +214,7 @@ public class ArraysAndArrayListConcepts
 			strList.add("Ted");
 			strList.add("David");
 
-			HashSet<String> stringSet = new HashSet(strList);
+			HashSet<String> stringSet = new HashSet<String>(strList);
 			System.out.print("\n Case 6 : Convert ArrayList<String> to HashSet<String> : ");
 			for (String temp : stringSet) {
 				System.out.print(temp + ", ");
