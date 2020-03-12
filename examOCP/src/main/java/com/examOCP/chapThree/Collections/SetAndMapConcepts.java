@@ -45,7 +45,6 @@ public class SetAndMapConcepts {
 		System.out.println("\nMAP using :");
 		hashMapPractice();
 
-
 	}
 
 	private static void hashMapPractice() {
@@ -106,6 +105,22 @@ public class SetAndMapConcepts {
 		nestedMap.put("1", map1);
 		nestedMap.put("2", map2);
 		nestedMap.put("3", map3);
+
+		// returns null but if key has null value then using
+		// containsKey to validate is much better
+		String value = map3.get(4);
+		//check this to validate only only non-null values
+
+		try
+		{
+			if ( map3.containsKey(4)){
+				map3.get(4);
+			}
+		}
+		catch (NullPointerException npe)
+		{
+			System.out.println(npe);
+		}
 
 		//flatMap and look for only one particular value
 		List<Map.Entry<String, String>> flatMapList = nestedMap.entrySet().stream()
