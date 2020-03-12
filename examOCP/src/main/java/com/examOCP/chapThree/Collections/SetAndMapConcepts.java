@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class SetAndMapConcepts {
 	enum Gfg {
@@ -43,6 +44,7 @@ public class SetAndMapConcepts {
 
 		System.out.println("\nMAP using :");
 		hashMapPractice();
+
 
 	}
 
@@ -76,8 +78,44 @@ public class SetAndMapConcepts {
 			System.out.println(me.getValue());
 			
 		}
-		
-		
+
+		testNestedMapPractice();
+
+	}
+
+	private static void testNestedMapPractice() {
+		System.out.println("\nNested Map test :");
+		Map<String, Map<String, String>> nestedMap = new HashMap<>();
+
+		//test data
+		Map<String, String> map1 = new HashMap<>();
+		map1.put("100", "type");
+		map1.put("200", "algo");
+		map1.put("300", "value");
+
+		Map<String, String> map2 = new HashMap<>();
+		map2.put("100", "type2");
+		map2.put("200", "algo2");
+		map2.put("300", "value2");
+
+		Map<String, String> map3 = new HashMap<>();
+		map3.put("100", "type3");
+		map3.put("200", "algo3");
+		map3.put("300", "value3");
+
+		nestedMap.put("1", map1);
+		nestedMap.put("2", map2);
+		nestedMap.put("3", map3);
+
+		//flatMap and look for only one particular value
+		List<Map.Entry<String, String>> flatMapList = nestedMap.entrySet().stream()
+				.flatMap(e -> e.getValue().entrySet().stream())
+				.filter(e -> e.getKey().equals("300"))
+				.filter(e-> e.getValue().equals("value"))
+				.collect(Collectors.toList());
+		System.out.println(flatMapList);
+		System.out.println(flatMapList.get(0).getValue());
+
 	}
 
 	private static void treeSetPractice() {
