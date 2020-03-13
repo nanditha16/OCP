@@ -9,11 +9,12 @@ import static org.junit.Assert.*;
 
 public class TestSimpleStreamTest {
 
-    private TestSimpleStream m;
-
+    private TestSimpleStream testSimpleStream;
+    String one;
     @org.junit.Before
     public void setUp() throws Exception {
-        m = new TestSimpleStream();
+        testSimpleStream = new TestSimpleStream();
+         one = "yes";
     }
 
     @org.junit.After
@@ -72,5 +73,12 @@ public class TestSimpleStreamTest {
         assertEquals(true, keySet.isPresent());
 
 
+    }
+
+    @Test
+    public void concatenate() {
+        Boolean result = testSimpleStream.concatenate(one, "np");
+        assertEquals("yes", one);
+        assertTrue( result);
     }
 }

@@ -1,18 +1,6 @@
 package com.examOCP.chapThree.Collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SetAndMapConcepts {
@@ -123,13 +111,14 @@ public class SetAndMapConcepts {
 		}
 
 		//flatMap and look for only one particular value
-		List<Map.Entry<String, String>> flatMapList = nestedMap.entrySet().stream()
+		Optional<Map.Entry<String, String>> flatMapList = nestedMap.entrySet().stream()
 				.flatMap(e -> e.getValue().entrySet().stream())
-				.filter(e -> e.getKey().equals("300"))
-				.filter(e-> e.getValue().equals("value"))
-				.collect(Collectors.toList());
+				.filter(e -> e.getKey().equals("300")) //filter on key
+				.filter(e-> e.getValue().equals("value")) //filter on value
+				.findFirst(); //efficiently stops after finding one item
+			//	.collect(Collectors.toList());
 		System.out.println(flatMapList);
-		System.out.println(flatMapList.get(0).getValue());
+		System.out.println(flatMapList.get().getValue());
 
 	}
 
