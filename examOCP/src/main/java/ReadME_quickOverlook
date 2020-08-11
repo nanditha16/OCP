@@ -1,0 +1,28 @@
+Array and Strings Revision pointers -
+
+1. Hash Tables:
+--> 1. Data structure that maps keys to values
+
+--> 2. Implementation using array of linkedList and a hashcode function :
+with minimum collision lookup time is O(1), worst case O(N)
+	Insert a key/value and 
+	--> Step 1: compute key's hash code (int/long)
+			NOTE: two different keys could have the same hashcode
+	--> Step 2: Map the hashcode to the index of an array 
+			NOTE: two different hashcodes can be mapped to the same index
+			eg : hash(key) % array_length
+	--> Step 3: at each index, we have a linked list of keys and values stored.
+			NOTE:Use linked list because of collisions
+			i.e two different keys with same hashcode/ two different hashcodes that map to the same index.
+	retrieve a value by key
+	--> Step 1: compute hash code from the key (int/long)
+	--> Step 2: compute index from hashcode 
+	--> Step 3: Search through linked list for the value with this key
+	
+--> 3. Implementation using Balanced binary search tree and a hashcode function :	
+with minimum collision lookup time is O(logN), 
+	potentially using less space, 
+	iterate through keys in order.
+	
+2. ArrayList & Re sizable Arrays
+
