@@ -1,8 +1,12 @@
 package ocp.exam.java11.lambda;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -22,7 +26,44 @@ public class TestLambdas {
 		list.add("Chan");
 		list.add("Ratn");
 		testPredicateConsumerOnStringList(list);
+		testcallingAPIWithLambda(list);
+	}
+
+	private static void testcallingAPIWithLambda(List<String> list) {
+		// removeIf() --> sets and Lists , no Maps
+		System.out.println("list.removeIf() : removes if predicate results in true");
+		List<String> newList = new ArrayList<>(list);
+		System.out.println("Input (remove if charAt(0) != 'C') - " + newList);
+		newList.removeIf(s -> s.charAt(0) != 'C');
+		System.out.println(newList);
+		// sort() --> only List(indexed/ordered) , no Set or Map
 		
+		// directly using list object instead of Collections using Comparator
+		System.out.println("list.sort() vs Collections.sort : sorted using Comparator (neg,pos,0) ");
+		list.sort((s1, s2) -> -1* s1.compareTo(s2));
+		System.out.println(list);
+		Collections.sort(list);
+		System.out.println(list);
+		// forEach() --> sets Lists same way (using Consumer), 
+		// Maps (using BiConsumer)- ketSet and values (using Consumer as its a a set)
+		System.out.println("list.forEach() : using Consumer prints for each elem in list");
+		list.forEach(s -> System.out.print(s + " "));
+		System.out.println();
+		Set<String> fam = Set.of("Mom", "Me", "Sis", "Grandmom", "Aunt");
+		fam.forEach(s -> System.out.print(s + " ")); //result is not ordered
+		System.out.println();
+		Map<String, Integer> map = new HashMap<>();
+		map.put("Mom", 65);
+		map.put("Me", 35);
+		map.put("Sis", 34);
+		map.put("Grandmom", 95);
+		map.put("Aunt", 66);
+		map.forEach((x,y) -> System.out.print(x + "-" + y + ";")); 
+		System.out.println();
+		map.keySet().forEach(x -> System.out.print(x + " "));
+		System.out.println();
+		map.values().forEach(x -> System.out.print(x + " "));
+		System.out.println();
 	}
 
 	private static void testPredicateConsumerOnStringList(List<String> list) {
@@ -80,6 +121,7 @@ public class TestLambdas {
 		List<Integer> listInt = List.of(99,66,77,88, 0, 1, -8, -99 ); // returns immutable object
 		System.out.println("Input - " + listInt);
 		System.out.println(BasicListOperations.sortIntegerList(listInt));
+		System.out.println();
 	}
 
 	private static Object print(Supplier<Object> supplier) {
